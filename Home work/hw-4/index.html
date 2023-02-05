@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let result = '';
+
+
+    let age = prompt("Ввш рік народження?");
+    if (age === null) {
+        alert('Шкода, що Ви не захотіли ввести свій рік народження.')
+    } else  {
+        result+= `Вам ${2023-age} р.\n`
+    }
+
+
+    let home = prompt('В якому місті ви живете?');
+    if (home===null) {
+        alert('Шкода, що Ви не захотіли ввести своє місто.')
+    }
+    else if (home==='Київ') {
+        result+= 'Ти живеш у столиці України\n'
+    }
+    else if (home==='Вашингтон') {
+        result+= 'Ти живеш у столиці США\n'
+    }
+    else if (home==='Лондон') {
+        result+= 'Ти живеш у столиці Великої Британії\n'
+    }
+    else {
+        result+= `Ти живеш у місті ${home}\n'`
+    }
+
+
+    let sport = prompt('Ваш улюбленний вид спорту?');
+    if (sport===null) {
+        alert('Шкода, що Ви не захотіли ввести свій улюбленний вид спорту.')
+    }
+    else if (sport.toLowerCase() === 'футбол') {
+        result+='Круто! Хочеш стати як Ліонель Мессі?'
+    }
+    else if (sport.toLowerCase() === 'баскетбол') {
+        result+='Круто! Хочеш стати як Майкл Джордан?'
+    }
+    else if (sport.toLowerCase() === 'хокей') {
+        result+='Круто! Хочеш стати як Вейн Ґрецкі?'
+    }
+    alert(result)
+</script>
+    </body>
+</html>
