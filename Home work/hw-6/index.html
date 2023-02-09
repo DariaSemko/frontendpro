@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let nums = '';
+    for (let i = 20; i <= 30; i+=0.5){
+        nums = nums + i + ' '
+    }
+    console.log(nums);
+
+    const dollar = 27;
+    for (let i = 10; i<=100; i+=10){
+        let hrn = i * dollar;
+        console.log(`$${i}=>${hrn}`)
+    }
+
+    const value = +prompt('Введите число');
+    for (let i = 1; i <= 100; i++){
+        if (i*i > value){
+            break
+        }
+        console.log(i)
+    }
+
+    const val = +prompt('Введите целое число');
+    let div = 0
+    for (let i = 1; i<=val; i++){
+        if (val % i === 0 ){
+            div++
+        }
+    }
+    if (div <=2){
+        console.log(`${val} это простое число`)
+    }
+    else console.log(`${val} это не простое число`)
+
+    const input = +prompt('Введите число');
+    let isThird = false
+    for (let i = 3; i<= input; i*=3){
+        if (i === input){
+            isThird = true
+        }
+    }
+    if (isThird){
+        console.log('есть степенью тройки')
+    }
+    else console.log('не является степенью тройки')
+</script>
+    </body>
+</html>
