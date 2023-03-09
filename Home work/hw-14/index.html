@@ -8,15 +8,17 @@
     <title>Document</title>
 </head>
 <body>
+<button id="btn_input">Ввод ссылки</button>
+<a id="btn_link" target="_blank"><button>Переход по ссылке</button></a>
 <script>
-let link = prompt("Введите ссылку")
-if (!(link.startsWith("http")||link.startsWith("https"))) {
-   link = "https://" + link
-    console.log(link)
-} else if (link.startsWith("https")) {
-    alert("https")
-} else if (link.startsWith("http")) {
-    alert("http")
+    let link = ""
+    document.getElementById('btn_input').onclick=function(){link = prompt("Введите ссылку")}
+    document.getElementById("btn_link").addEventListener("click", check);
+function check () {
+    if (!(link.startsWith("http") || link.startsWith("https"))) {
+        link = "https://" + link;
+        location.href=link
+    } else location.href=link
 }
 </script>
 </body>
