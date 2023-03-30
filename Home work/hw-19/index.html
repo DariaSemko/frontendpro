@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+    <label>
+        <input type="password" name="psw" id="psw">
+    </label>
+</div>
+<div id="message">
+    <p id="letter" class="invalid">Повинна бути однаи велика літера</p>
+    <p id="number" class="invalid">Повинна бути хоча б однв цифра</p>
+    <p id="punctuation" class="invalid">Повинен бути хоча б одини знак пунктуації</p>
+    <p id="length" class="invalid">Довжина мініум 8 символів</p>
+</div>
+
+<script>
+const inputPass = document.getElementById("psw");
+const letter = document.getElementById("letter");
+const punctuation = document.getElementById("punctuation");
+const num = document.getElementById("number");
+const length = document.getElementById("length");
+
+inputPass.onkeyup = function() {
+    let upperCaseLetters = /[A-Z]/g;
+    if(inputPass.value.match(upperCaseLetters)) {
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+    }
+
+    let nums = /[0-9]/g;
+    if(inputPass.value.match(nums)) {
+        num.classList.remove("invalid");
+        num.classList.add("valid");
+    } else {
+        num.classList.remove("valid");
+        num.classList.add("invalid");
+    }
+
+    if(inputPass.value.length >= 8) {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+    } else {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+    }
+
+    let marks = /[.?,!@#$%^&*]/;
+    if(inputPass.value.match(marks)) {
+        punctuation.classList.remove("invalid");
+        punctuation.classList.add("valid");
+    } else {
+        punctuation.classList.remove("valid");
+        punctuation.classList.add("invalid");
+    }
+}
+</script>
+</body>
+</html>
