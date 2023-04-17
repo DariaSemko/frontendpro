@@ -1,0 +1,27 @@
+body {
+    overflow: hidden;
+}
+
+#weather {
+    text-align: center;
+    background-color: #ccc;
+    margin: 10px;
+    padding: 15px;
+}
+
+.box {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+.weather--part1 {
+    font-size:20px;
+    flex-direction: column;
+    width: 35%;
+}
+.weather--part2 {
+    font-size:20px;
+    flex-direction: column;
+    width: 35%;
+}
