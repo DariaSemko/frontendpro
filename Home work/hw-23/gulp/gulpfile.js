@@ -7,7 +7,7 @@ task('js', () => {
         .pipe(babel({
             presets: ['@babel/env']
         }))
-        .pipe(concat('main.js'))
+        .pipe(concat('index.js'))
         .pipe(uglify())
         .pipe(dest('dist'))
 } )
