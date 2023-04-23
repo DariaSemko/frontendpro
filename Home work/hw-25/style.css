@@ -1,0 +1,114 @@
+#wrapper {
+overflow: hidden;
+    min-width: 1920px;
+    min-height: 1080px;
+    margin: 4px;
+    padding: 10px;
+}
+
+.js--infoContainer {
+    display: none;
+}
+
+#js--apiForm {
+    margin: 0 0 15px 0;
+}
+
+.actionSpan {
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    background-color: #999999;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.apiUrl {
+    width: 40%;
+    min-height: 25px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #272b30;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;}
+
+.btn {
+    display: inline-block;
+    background-color: #999999;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    border-radius: 4px;
+}
+
+#controllerContainer, #idContainer {
+    margin: 5px;
+    display: inline-block;
+    background-color: #999999;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    color: white;
+    padding: 4px;
+}
+
+.loader {
+    display: none;
+    background: none repeat scroll 0 0 #fff;
+    height: 100%;
+    width: 100%;
+    /*position: fixed;*/
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+}
+.loader .loader_inner {
+    animation: animate 1.5s linear infinite;
+    clip: rect(0, 80px, 80px, 40px);
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+}
+@keyframes animate {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(220deg)
+    }
+}
+.loader .loader_inner:after {
+    animation: animate2 1.5s ease-in-out infinite;
+    clip: rect(0, 80px, 80px, 40px);
+    content:'';
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+}
+@keyframes animate2 {
+    0% {
+        box-shadow: inset #b3dfd8 0 0 0 17px;
+        transform: rotate(-140deg);
+    }
+    50% {
+        box-shadow: inset #b3dfd8 0 0 0 2px;
+    }
+    100% {
+        box-shadow: inset #b3dfd8 0 0 0 17px;
+        transform: rotate(140deg);
+    }
+}
+
+.open {
+    display: block;
+}

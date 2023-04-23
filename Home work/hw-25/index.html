@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+<h1>SWAPI</h1>
+<form id="js--apiForm" action="https://swapi.dev/api/">
+    <span class="actionSpan">https://swapi.dev/api/</span>
+    <input type="text" id="js--apiUrl" class="apiUrl" />
+    <button type="submit" class="btn">Get info</button>
+</form>
+<div id="resultContainer">
+    <div class="loader">
+        <div class="loader_inner"></div>
+    </div>
+    <div class="js--infoContainer">
+        <div id="controllerContainer"></div>
+        <div id="idContainer"></div>
+        <h2>Results:</h2>
+        <pre class="js--result"></pre>
+    </div>
+</div>
+</div>
+<script type="module" src="modules/main.js"></script>
+</body>
+</html>
