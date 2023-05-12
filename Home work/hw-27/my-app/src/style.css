@@ -1,0 +1,67 @@
+h1 {
+    color: darkred;
+    text-align: center;
+}
+
+img {
+    max-width: 200px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: darkred;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+}
+
+.App {
+    background-color: #999999;
+}
+
+.headerList {
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+}
+
+.headerList li {
+    margin: 0 auto;
+}
+
+.leftList {
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    max-width: 7%;
+}
+
+.main {
+    display: flex;
+}
+
+.cards {
+    display: flex;
+    margin: 0 auto;
+}
+
+.card {
+    text-align: center;
+    margin: 40px;
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 30%;
+    background-color: darkred;
+    color: white;
+}
