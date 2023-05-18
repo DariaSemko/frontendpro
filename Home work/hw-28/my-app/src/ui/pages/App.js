@@ -7,28 +7,50 @@ class App extends React.Component {
         super(props);
 
         this.showResults = this.showResults.bind(this)
-        this.smiles = [
-            {id: 1, name: 'Smile 1', count: 0},
-            {id: 2, name: 'Smile 2', count: 0},
-            {id: 3, name: 'Smile 3', count: 0},
-            {id: 4, name: 'Smile 4', count: 0},
-            {id: 5, name: 'Smile 5', count: 0},
+        this.onClick = this.onClick.bind(this)
+        this.winner = ""
+        this.state = {
+            emojis:[
+                {id: 1, name: 'Smile 1', count: 0},
+                {id: 2, name: 'Smile 2', count: 0},
+                {id: 3, name: 'Smile 3', count: 0},
+                {id: 4, name: 'Smile 4', count: 0},
+                {id: 5, name: 'Smile 5', count: 0},
+        ],
+            display: "none"
+    }}
 
-        ];
+    show () {
+        this.setState({
+            display: "block"
+        })
     }
-
-    showResults() {
-        let winner = this.smiles.reduce((prev, current) => (prev.count > current.count ? prev : current));
-        const winnerElement = document.querySelector('.winner');
-        winnerElement.innerHTML = `<h2>Winner: ${winner.name} (${winner.count} votes)</h2>`;
-    }
-
-    showClick (index, className) {
-        const click = document.querySelector(className)
-        click.innerHTML = this.smiles[index].count
+    incrementCount (index) {
+        this.state.emojis[index].count++
+        return this.state.emojis[index]
+}
+    onClick (index) {
+        const click = () => {
+            this.setState(this.incrementCount(index))
+        }
+        return click
 }
 
+    showResults() {
+        let smiles = this.state.emojis
+        this.winner = smiles.reduce((prev, current) => (prev.count > current.count ? prev : current));
+        this.show()
+    }
+
     render() {
+        const style = {
+            display: this.state.display
+        };
+        const ClickCount = (props) => (
+            <div id="results">
+                {this.state.emojis[props.index].count}
+            </div>
+        )
         return (
             <div className="App">
                 <Caption/>
@@ -36,57 +58,36 @@ class App extends React.Component {
                     <div className="image">
                         <img alt='smile'
                             src='https://symbl-world.akamaized.net/i/webp/4f/070ccbbb696c2975bb0da521c2ffc5.webp'
-                               onClick={() => {
-                                   this.smiles[0].count += 1
-                                   this.showClick(0, ".click")
-                               }
-                               }
+                               onClick={this.onClick(0, ".click")}
                         />
-                        <div className="click"></div>
+                        { this.state.emojis[0].count !==0 ? <ClickCount index={0} /> :null }
                         <img alt='smile'
                             src='https://symbl-world.akamaized.net/i/webp/55/ceb7ce388c8b07ffa8495e9d8905bd.webp'
-                            onClick={() => {
-                                this.smiles[1].count += 1
-                                this.showClick(1,".click2" )
-                            }
-                            }
+                             onClick={this.onClick(1, ".click2")}
                         />
-                        <div className="click2"></div>
+                        { this.state.emojis[1].count !==0 ? <ClickCount index={1} /> :null }
                         <img alt='smile'
                             src='https://symbl-world.akamaized.net/i/webp/27/f2d2f72f7e79b792bcb6f1019253ba.webp'
-                            onClick={() => {
-                                this.smiles[2].count += 1
-                                this.showClick(2, ".click3")
-                            }
-                            }
+                             onClick={this.onClick(2, ".click3")}
                         />
-                        <div className="click3"></div>
+                        { this.state.emojis[2].count !==0 ? <ClickCount index={2} /> :null }
                         <img alt='smile'
                             src='https://symbl-world.akamaized.net/i/webp/b6/006751651eeab3a5d8de403cc6bce0.webp'
-                            onClick={() => {
-                                this.smiles[3].count += 1
-                                this.showClick(3, ".click4")
-                            }
-                            }
+                             onClick={this.onClick(3, ".click4")}
                         />
-                        <div className="click4"></div>
+                        { this.state.emojis[3].count !==0 ? <ClickCount index={3} /> :null }
                         <img alt='smile'
                             src='https://symbl-world.akamaized.net/i/webp/fd/dd5b841cf3eac8cbaa636a586f3c19.webp'
-                            onClick={() => {
-                                this.smiles[4].count += 1
-                                this.showClick(4, ".click5")
-                            }
-                            }
+                             onClick={this.onClick(4, ".click5")}
                         />
-                        <div className="click5"></div>
+                        { this.state.emojis[4].count !==0 ? <ClickCount index={4} /> :null }
                     </div>
-                    <button className='btn' onClick={() => {
-                        this.showResults()
-                    }
+                    <button className='btn' onClick={
+                        this.showResults
                     }>Show results
                     </button>
-                    <div className='winner'>
-
+                    <div className='winner' style={style}>
+                        <h2>Winner: {this.winner.name} ({this.winner.count} votes)</h2>
                     </div>
                 </main>
             </div>
