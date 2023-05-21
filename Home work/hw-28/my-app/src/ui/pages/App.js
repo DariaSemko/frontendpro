@@ -8,7 +8,6 @@ class App extends React.Component {
 
         this.showResults = this.showResults.bind(this)
         this.onClick = this.onClick.bind(this)
-        this.winner = ""
         this.state = {
             emojis:[
                 {id: 1, name: 'Smile 1', count: 0},
@@ -17,7 +16,8 @@ class App extends React.Component {
                 {id: 4, name: 'Smile 4', count: 0},
                 {id: 5, name: 'Smile 5', count: 0},
         ],
-            display: "none"
+            display: "none",
+            winner:  ""
     }}
 
     show () {
@@ -38,7 +38,7 @@ class App extends React.Component {
 
     showResults() {
         let smiles = this.state.emojis
-        this.winner = smiles.reduce((prev, current) => (prev.count > current.count ? prev : current));
+        this.state.winner = smiles.reduce((prev, current) => (prev.count > current.count ? prev : current));
         this.show()
     }
 
@@ -87,7 +87,7 @@ class App extends React.Component {
                     }>Show results
                     </button>
                     <div className='winner' style={style}>
-                        <h2>Winner: {this.winner.name} ({this.winner.count} votes)</h2>
+                        <h2>Winner: {this.state.winner.name} ({this.state.winner.count} votes)</h2>
                     </div>
                 </main>
             </div>
