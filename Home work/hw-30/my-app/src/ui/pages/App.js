@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import '../../main.css';
 import TodoItem from "../components/TodoItem";
 import TodoForm from "../conteiners/TodoForm";
@@ -7,17 +7,26 @@ import Header from "../components/Header";
 function Main() {
     const [items, setItems] = useState([])
 
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('items'));
+        if (items) {
+            setItems(items);
+        }
+    }, []);
+
     const handleAdd = (event) => {
         event.preventDefault();
         const input = event.target.getElementsByClassName('form__input')[0];
         const text = input.value;
-        const newItems = [...items, {id: Math.random(), text, showEdit: false}]
-        setItems(newItems)
+        const newItems = [...items, {id: Math.random(), text, showEdit: false}];
+        setItems(newItems);
+        localStorage.setItem("items", JSON.stringify(newItems));
         input.value = ''
     }
 
     const handleRemove = (id) => {
         const newItems = items.filter(item => item.id !== id)
+        localStorage.setItem("items", JSON.stringify(newItems))
         setItems(newItems)
     }
 
@@ -28,7 +37,6 @@ function Main() {
             }
             return item
         })
-        console.log(newItems)
         setItems(newItems)
     }
 
@@ -41,6 +49,7 @@ function Main() {
             }
             return item
         })
+        localStorage.setItem("items", JSON.stringify(newItems))
         setItems(newItems)
     }
 
